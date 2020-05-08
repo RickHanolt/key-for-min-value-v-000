@@ -3,16 +3,21 @@ require 'pry'
 # Given a hash with numeric values, return the key for the smallest value
 
 def key_for_min_value(values) #{:blake => 500, :ashley => 2, :adam => 1}
-  min_value = nil
-  key_min = nil
-  values.each do |key, number|
-    if key_min == nil
-      min_value = number
-      key_min = key
-    elsif number < min_value
-      min_value = number
-      key_min = key
+    temp_value = nil
+    temp_key = nil
+  values.each do |key, value|
+    
+    if temp_value == nil
+      temp_value = value
+      temp_key = key
     end
+    
+    if value < temp_value
+      temp_value = value
+      temp_key = key
+    end
+    
   end
-  return key_min
+  
+  return temp_key
 end
